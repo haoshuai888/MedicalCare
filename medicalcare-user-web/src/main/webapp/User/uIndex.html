@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>普通用户首页</title>
+		<!-- 根据设备的宽度调整页面的缩放比例 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<!--  描述：引入css  -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css"/>
+        <link rel="stylesheet" href="../css/bootstrap-theme.min.css" type="text/css"/>
+        <link rel="stylesheet" href="../css/uIndex.css" />
+        <!--  描述：引入js  -->
+        <script type="text/javascript" src="../js/jquery-2.1.0.js" ></script>
+        <script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+        <script src="../js/move.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+        	window.onload = function(){
+//      		console.log(window.location.href);      //"http://127.0.0.1:8020/PracticalTraining/User/uIndex.html#"
+				var moveNav = document.getElementById("moveNav");
+				var moveLi = moveNav.getElementsByTagName("li");
+				var moveWidth = moveLi[0].offsetWidth;
+//				console.log(moveWidth);
+				var oLine = document.getElementById('line');
+				oLine.style.width = moveWidth + "px";
+				
+				function getPosition(e){
+					var e = window.event || e;
+					var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+					var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;	
+					return {x:e.clientX+scrollLeft,y:e.clientY+scrollTop};	
+				}
+				
+				moveNav.onmouseover = function(e){
+
+					var oPos = getPosition(e);
+					//oPos.x  是鼠标到浏览器左边框的值		moveNav.offsetLeft  内容到该盒子的左边框的距离
+					var mousex = oPos.x - moveNav.getBoundingClientRect().left;				
+					var mousey = oPos.y;			
+					
+					if(mousex<moveWidth){
+			    		move(oLine,{'left':(moveWidth*0+15)});
+			    	}else if(mousex<(moveWidth*2)){
+			    		move(oLine,{'left':(moveWidth*1+15)});
+			    	}else if(mousex<(moveWidth*3)){
+			    		move(oLine,{'left':(moveWidth*2+15)});
+			    	}else if(mousex<(moveWidth*4)){
+			    		move(oLine,{'left':(moveWidth*3+15)});
+			    	}else if(mousex<(moveWidth*5)){
+			    		move(oLine,{'left':(moveWidth*4+15)});
+			    	}else if(mousex<(moveWidth*6)){
+			    		move(oLine,{'left':(moveWidth*5+15)});
+			    	}else{
+			    		move(oLine,{'left':(moveWidth*0+15)})
+			    	}
+			    	oLine.style.display = "block";
+					moveNav.onmouseout = function(){
+				    	move(oLine,{'left':15});
+				    	oLine.style.display = "none";
+				    }
+				}
+        	}
+        </script>
+	</head>
+	<body>
+		<!--头部-->
+		<div class="hear">
+			<div class="container" style="width: auto;">
+				<div class="float_le col-md-2 col-sm-3">
+					<span class="float_ri">您好，欢迎使用医养平台</span>
+				</div>
+				<div class="float_le col-md-3 col-sm-4" style="border-left: 1px solid #BBBBBB;">
+					<span style="text-align: left;">今天是2018年6月25日  星期一</span>
+				</div>
+				<div class="float_ri col-md-4 col-sm-5 hidden-xs">
+					<span class="col-md-4 bor_ri cur_poi">设为首页</span>
+					<span class="col-md-4 bor_ri cur_poi">加入收藏</span>
+					<span class="col-md-4 cur_poi">联系我们</span>
+				</div>
+			</div>
+		</div>
+		
+		<!--主要内容-->
+		<div class="main">
+			
+			<!--导航条开始-->
+			<nav class="navbar navbar-default">
+				<div class="container">
+				  <div class="container-fluid">
+				    <!-- Brand and toggle get grouped for better mobile display -->
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <!--<a class="navbar-brand" href="#">Brand</a>-->
+				    </div>
+				
+				    <!-- 导航条 -->
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      <ul class="nav navbar-nav" id="moveNav">
+				        <li><a href="uPersonal.html">个人中心</a></li>
+				        <li><a href="#">健康监测</a></li>
+				        <li><a href="#">健康日志</a></li>
+				        <li><a href="#">健康监护</a></li>
+				        <li><a href="#">服务预定</a></li>
+				        <li><a href="#">亲人关怀</a></li>
+				        <span id="line" style="display: none;"></span>
+				      </ul>
+				    </div><!-- /.navbar-collapse -->
+				  </div><!-- /.container-fluid -->
+				</div>
+			</nav>
+			<!--导航条结束-->
+			
+			<!--正文始-->
+			
+			<div class="container main_con">
+				<!--预警信息始-->
+				<div class="col-md-8 paddingLe_0" >
+					<div class="earlyWarning" style="height: 170px;">
+						<h3>
+							预警信息
+							<a href="#">查看更多</a>
+						</h3>
+						
+						<!--预警列表-->
+						<ul>
+							<li>
+								<i class="glyphicon glyphicon-exclamation-sign"></i>
+								<p>2018-03-02  16:29:06，<b style="">名字</b>测量了脂肪：脂肪：30.1，该脂肪超出正常范围值，正常范围为：14.0-19.0，请注意！</p>
+							</li>
+							<li>
+								<i class="glyphicon glyphicon-exclamation-sign"></i>
+								<p>2018-03-02  16:29:06，<b>名字</b>测量了脂肪：脂肪：30.1，该脂肪超出正常范围值，正常范围为：14.0-19.0，请注意！</p>
+							</li>
+							<li>
+								<i class="glyphicon glyphicon-exclamation-sign"></i>
+								<p>2018-03-02  16:29:06，<b>名字</b>测量了脂肪：脂肪：30.1，该脂肪超出正常范围值，正常范围为：14.0-19.0，请注意！</p>
+							</li>
+							<li>
+								<i class="glyphicon glyphicon-exclamation-sign"></i>
+								<p>2018-03-02  16:29:06，<b>名字</b>测量了脂肪：脂肪：30.1，该脂肪超出正常范围值，正常范围为：14.0-19.0，请注意！</p>
+							</li>
+						</ul>
+						
+					</div>
+				</div>
+				<!--预警信息终-->
+				<!--个人信息始-->
+				<div class="col-md-4 padding_0" style="height: 170px;">
+					<div class="personal row">
+						<!--<div class="">-->
+							<div class="personal_le float_le" >
+								<img src="../img/QQ头像.jpg" width="120px" />
+							</div>
+							<div class="personal_ri float_le" >
+								<p class="userName"> <i class="glyphicon glyphicon-user"></i> 姓名</p>
+								<p class="tell"> <i class="glyphicon glyphicon-phone-alt"></i> 188-0000-0000</p>
+								<p class="age"> <i class="glyphicon glyphicon-heart"></i> 60</p>
+								<p class="address"> <i class="glyphicon glyphicon-home"></i> 太原市尖草坪区学院路3号</p>
+								<p class="MedicalRecord"> <i class="glyphicon glyphicon-plus"></i> 骨质疏松</p>
+							</div>
+							
+						<!--</div>-->
+						
+					</div>
+				</div>
+				<!--个人信息终-->
+				<!--指标始-->
+				<div class="col-md-8 paddingLe_0" >
+					<div class="graph">
+						
+					</div>
+				</div>
+				<!--指标终-->
+				<!--热门信息始-->
+				<div class="col-md-4 padding_0" >
+					<div class="now">
+						
+						<p class="now_title">热门服务</p>
+						
+						<div style="width:100%;">
+							<span class="col-md-4">热水器维修</span>
+							<span class="col-md-4">气功</span>
+							<span class="col-md-4">体检</span>
+							<span class="col-md-4">针灸</span>
+							<span class="col-md-4">太极拳</span>
+							<span class="col-md-4"></span>
+						</div>
+						
+					</div>
+				</div>
+				<!--热门信息终-->
+			</div>
+			
+			<!--正文终-->
+		</div>
+		
+	</body>
+</html>

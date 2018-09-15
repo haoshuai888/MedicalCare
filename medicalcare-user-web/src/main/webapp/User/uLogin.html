@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<title>登录医养平台</title>
+		<!-- 根据设备的宽度调整页面的缩放比例 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<!--  描述：引入css  -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css"/>
+        <link rel="stylesheet" href="../css/bootstrap-theme.min.css" type="text/css"/>
+        <link rel="stylesheet" href="../css/uLogin.css" />
+        <!--  描述：引入js  -->
+        <script type="text/javascript" src="../js/jquery-2.1.0.js" ></script>
+<!--        <script type="text/javascript" src="js/bootstrap.js" ></script>-->
+        <script type="text/javascript">
+        	
+        		function changeLoginRegister(my){
+//      			alert($(my));
+        			if($("#login").css("display") == "none"){
+        				$("#login").css("display","block");
+        				$("#register").css("display","none");
+//      				alert($(my).html("立即注册"));
+        				$(my).html("立即注册");
+        				$(my).parent().prev().html("还没有平台帐号？");
+        			}else{
+        				$("#login").css("display","none");
+        				$("#register").css("display","block");
+//      				alert($(my).html("前去登录"));	
+						$(my).html("前去登录");
+						$(my).parent().prev().html("已有有平台帐号？");
+        			}
+        		}
+     
+        </script>
+	</head>
+	<body>
+		<!--头部-->
+		<div class="hear">
+			<div class="container">
+				<div class="float_le col-md-2 col-sm-3">
+					<span >您好，欢迎使用医养平台</span>
+				</div>
+				<div class="float_le col-md-3 col-sm-4" style="border-left: 1px solid #BBBBBB;">
+					<span style="text-align: left;">今天是2018年6月25日  星期一</span>
+				</div>
+				<div class="float_ri col-md-4 col-sm-5 hidden-xs">
+					<span class="col-md-4 bor_ri cur_poi">设为首页</span>
+					<span class="col-md-4 bor_ri cur_poi">加入收藏</span>
+					<span class="col-md-4 cur_poi">联系我们</span>
+				</div>
+			</div>
+		</div>
+		<!--主要部分-->
+		<div class="container main">
+			<div class="main_con col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-12">
+				<div class="main_left float_le col-md-7 col-sm-7 hidden-xs">
+					<img src="../img/养医.png" width="100%"/>
+				</div>
+				
+				<div class="main_right float_ri col-md-5 col-sm-5 col-xs-12" style="display: table;">
+					<div >
+						<!--
+                        	作者：254092895@qq.com
+                        	时间：2018-07-14
+                        	描述：登录模块
+                        -->
+						<div class="login" style="display:block;" id="login">
+							<h3 class="title">普通用户登录</h3>
+							<div class="form">
+								
+								<form action="" method="">
+									<div class="input-group input">
+									  <input type="text" name=""  class="input_im" placeholder="输入用户名/邮箱/手机号" style="border-radius:3px">
+									  <input type="password" name="" class="input_im" placeholder="输入密码" style="border-radius:3px">
+									  <label>忘记密码</label>
+									  <input type="submit" value="登录" class="btn"/>
+									</div>
+								</form>	
+							</div>
+						</div>
+						
+						
+						<!--
+	                    	作者：254092895@qq.com
+	                    	时间：2018-07-14
+	                    	描述：注册模块
+	                    -->
+						<div class="register" style="display:none;" id="register">
+							<h3 class="title">普通用户注册</h3>
+							<div class="form">
+								
+								<form action="" method="">
+									<div class="input-group input">
+									  <input type="text" name=""  class="input_im" placeholder="输入用户名/邮箱/手机号" style="border-radius:3px">
+									  <input type="password" name="" class="input_im" placeholder="输入密码" style="border-radius:3px">
+									  <input type="password" name="" class="input_im" placeholder="确认密码" style="border-radius:3px">
+									  <input type="submit" value="注册" class="btn" style="margin-top:0;"/>
+									</div>
+								</form>	
+							</div>
+						</div>
+						
+						<div class="third_part_box">
+							<div class="third_part">
+								<div class="third_part_title">第三方账号登录</div>
+								<div class="third_part_a">
+									<a href="#"></a>
+									<a href="#"></a>
+									<a href="#"></a>
+									<a href="#"></a>
+									<a href="#"></a>
+								</div>
+								
+								<div class="register-now">
+									<span>还没有平台帐号？</span>
+				                    <span class="tracking-ad" >
+								            <a href="#" class="" onclick="changeLoginRegister(this);">立即注册</a>
+				                    </span>
+				                </div>
+				                
+							</div>
+						</div>
+					
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

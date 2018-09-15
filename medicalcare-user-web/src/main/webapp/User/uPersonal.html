@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人中心</title>
+	</head>
+	<body>
+		<div class="content">
+			
+		</div>
+		
+		
+		<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				console.log('页面DOM加载完成');
+				$.ajax({
+					type:"post",
+					url:"http://localhost:8081/user/query",
+					async:true,
+					data:{userId:1},
+					datatype:'json',
+					
+					//准备请求
+					beforeSend:function(){
+						console.log('准备请求');
+					},
+					
+					
+					//成功
+					success:function(data){
+						console.log('执行成功');
+						console.log(data);
+					},
+					
+					
+					//请求执行
+					complete:function(XMLHttpRequest,TextStatus){
+						console.log('请求执行');
+						console.log(XMLHttpRequest.responseText);
+               			console.log(TextStatus);
+					},
+					
+					error:function(){
+						alert('错误');
+					},
+					
+				});
+			})
+		</script>
+	</body>
+</html>
